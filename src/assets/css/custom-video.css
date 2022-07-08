@@ -1,0 +1,82 @@
+@import "video.js/dist/video-js.css";
+.vjs-custom-bar {
+  position: absolute;
+  color: #fff;
+  right: 10px;
+  transform: translateY(-50%);
+  top: 50%;
+}
+.vjs-custom-bar:hover {
+  opacity: 1 !important;
+}
+.vjs-custom-control-bar {
+  padding: 10px;
+  background: rgba(43, 51, 63, 0.7);
+  border-radius: 5px;
+  cursor: pointer;
+}
+/* 开始录制 闪烁 */
+.record-procees {
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  background: red;
+  border-radius: 8px;
+  animation: blings 1s linear infinite;
+}
+.mt10 {
+  margin-top: 10px;
+}
+.ml10 {
+  margin-left: 10px;
+}
+.ac {
+  display: flex;
+  align-items: center;
+}
+@keyframes blings {
+  0% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.video-js .vjs-custom-bar {
+  color: white;
+  /* font-size: 2em; */
+  padding: .5em;
+ 
+ }
+ 
+ .vjs-has-started .vjs-custom-bar {
+  /* display: flex; */
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0.1s, opacity 0.1s;
+ }
+ /* 用户不活动时设计title bar自动隐藏 */
+ .vjs-has-started.vjs-user-inactive.vjs-playing .vjs-custom-bar {
+ 
+  visibility: visible;
+ 
+  /*visibility: hidden;*/
+ 
+  opacity: 0;
+ 
+  transition: visibility 1s, opacity 1s;
+ 
+ }
+ .vjs-controls-disabled .vjs-custom-bar,
+ .vjs-using-native-controls .vjs-custom-bar,
+ .vjs-error .vjs-custom-bar {
+  display: none !important;
+ }
+ .vjs-audio.vjs-has-started.vjs-user-inactive.vjs-playing .vjs-custom-bar {
+  opacity: 0;
+  visibility: visible;
+  /*visibility: hidden;*/
+ }
+ .vjs-has-started.vjs-no-flex .vjs-custom-bar {
+  display: table;
+ }
